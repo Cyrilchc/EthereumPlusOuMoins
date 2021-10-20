@@ -240,7 +240,7 @@ class App extends Component {
     try {
       const { contract, accounts, Tax, web3 } = this.state;
       var nbr = document.getElementById("proposeNumberInput").value;
-      await contract.methods.proposeNumber(nbr).send({ from: accounts[0], value: web3.utils.toWei(Tax, "finney") });
+      await contract.methods.proposeNumber(nbr).send({ from: accounts[0], value: web3.utils.toWei(Tax, "ether") });
       this.sync();
     }
     catch (error) {
@@ -298,7 +298,7 @@ class App extends Component {
                             <button className="button-primary" onClick={this.addToPlayers}>Ajouter le joueur</button>
                           </div>
                           <div className="six columns">
-                            <h5>Modifier la taxe obligatoire (en finney)</h5>
+                            <h5>Modifier la taxe obligatoire (en Eth)</h5>
                             <input placeholder="50" type="number" id="newTaxInput"></input>
                             <br />
                             <button className="button-primary" onClick={this.setTax}>Modifier la taxe</button>
@@ -353,7 +353,7 @@ class App extends Component {
                             <p>{this.state.Winner}</p>
                           </div>
                           <div className="six columns">
-                            <h5>Récupérer le pot ({this.state.Pot} finney)</h5>
+                            <h5>Récupérer le pot ({this.state.Pot} Eth)</h5>
                             <button className="button-primary" onClick={this.win}>Récupérer</button>
                           </div>
                         </div>
@@ -380,9 +380,9 @@ class App extends Component {
                 "Aucun nombre proposé pour l'instant"
             }
             <hr />
-            <h4>Taxe actuelle pour jouer : {this.state.Tax} finney</h4>
+            <h4>Taxe actuelle pour jouer : {this.state.Tax} Eth</h4>
             <hr />
-            <h4>Pot (montant total investi) : {this.state.Pot} finney</h4>
+            <h4>Pot (montant total investi) : {this.state.Pot} Eth</h4>
             <hr />
             <h4>Joueurs inscrits</h4>
             {
